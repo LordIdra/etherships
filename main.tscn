@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://btun77do6xcfi"]
+
+[ext_resource type="PackedScene" uid="uid://btgyxx65yfho8" path="res://scenes/tango.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dqyt4sjlalyr1" path="res://scripts/player_ship_controller.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=1159144964]
+
+[node name="Tango2" parent="." unique_id=1207146002 instance=ExtResource("1_ig7tw")]
+position = Vector2(146, 281)
+
+[node name="Tango" parent="." unique_id=1584762870 instance=ExtResource("1_ig7tw")]
+position = Vector2(794, 349)
+
+[node name="PlayerShipController" type="Node" parent="Tango" unique_id=1384597014]
+script = ExtResource("2_0xm2m")
+metadata/_custom_type_script = "uid://dqyt4sjlalyr1"
+
+[node name="Camera2D" type="Camera2D" parent="Tango" unique_id=1000706342]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true

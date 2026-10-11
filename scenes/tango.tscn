@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://btgyxx65yfho8"]
+
+[ext_resource type="Script" uid="uid://c4fnxgxkmv5pd" path="res://scripts/tango.gd" id="1_or0f7"]
+[ext_resource type="Texture2D" uid="uid://b2cldn7i18ls7" path="res://sprites/tango.svg" id="2_ymq40"]
+[ext_resource type="Texture2D" uid="uid://bupp61igeerv0" path="res://sprites/engine-particle-1.png" id="3_ymq40"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k7ulu"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ymq40"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(28.955, 1, 1)
+gravity = Vector3(0, 0, 0)
+use_scale_3d = true
+scale_3d_min = Vector3(0.255, 0.255, 0.255)
+scale_3d_max = Vector3(0.68, 0.68, 0.68)
+anim_speed_min = 1.25
+anim_speed_max = 1.25
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1207146002]
+mass = 100.0
+gravity_scale = 0.0
+linear_damp = 0.2
+angular_damp = 0.5
+script = ExtResource("1_or0f7")
+acceleration = 30000.0
+turn_acceleration = 300000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1184458152]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ymq40")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=955449676]
+position = Vector2(0, 19)
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(143.75, -128.75, 145, 0, 191, 63, 191.75, 191.75, 143.75, 255.5, 144, 319.5, 120, 351.75, 96, 351.5, 72, 319.5, -71.5, 319.75, -95.25, 351.75, -119.25, 351.75, -143.5, 319.5, -143.25, 255.5, -191, 191.5, -191.25, 63.75, -144.5, 0, -143.25, -128.5, -191, -192.25, -191, -320.5, -104, -352.5, -63.75, -448.75, 64.5, -448.75, 104.5, -352.25, 191.5, -320.25, 191.75, -192.25)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1957750746]
+material = SubResource("CanvasItemMaterial_k7ulu")
+position = Vector2(0, 149)
+amount = 100
+texture = ExtResource("3_ymq40")
+lifetime = 2.0
+speed_scale = 10.0
+use_fixed_seed = true
+seed = 1639622435
+fixed_fps = 60
+trail_lifetime = 5.35
+process_material = SubResource("ParticleProcessMaterial_ymq40")
