@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4hjxrs5klu2k"]
+
+[ext_resource type="Script" uid="uid://vd70r5reax3m" path="res://scripts/speck_collector.gd" id="1_pfwnh"]
+[ext_resource type="Texture2D" uid="uid://bynxnu6ovnb5" path="res://sprites/speck-collector.svg" id="2_pfwnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l8vt"]
+size = Vector2(70, 4)
+
+[node name="SpeckCollector" type="Area2D" unique_id=1937856589]
+collision_mask = 7
+script = ExtResource("1_pfwnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=958270767]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pfwnh")
+
+[node name="CollectionArea2D" type="Area2D" parent="." unique_id=2080579243]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea2D" unique_id=885046035]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_1l8vt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1575563066]
+polygon = PackedVector2Array(-35, 16, -35, 23, -22, 35, 23, 35, 35, 23, 35, 16)

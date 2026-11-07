@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://btgyxx65yfho8"]
 
-[ext_resource type="Script" uid="uid://c4fnxgxkmv5pd" path="res://scripts/tango.gd" id="1_or0f7"]
+[ext_resource type="Script" uid="uid://bqiwvhabtbeo" path="res://scripts/tango.gd" id="1_or0f7"]
 [ext_resource type="Texture2D" uid="uid://b2cldn7i18ls7" path="res://sprites/tango.svg" id="2_ymq40"]
 [ext_resource type="Texture2D" uid="uid://bupp61igeerv0" path="res://sprites/engine-particle-1.png" id="3_ymq40"]
+[ext_resource type="PackedScene" uid="uid://bmywqdsg3yequ" path="res://scenes/mining_turret.tscn" id="4_k43ft"]
+[ext_resource type="Texture2D" uid="uid://d010ealnulih8" path="res://sprites/chard.svg" id="5_q4bqi"]
+[ext_resource type="PackedScene" uid="uid://bhc5jrf8tcryr" path="res://scenes/icon.tscn" id="5_qgru1"]
+[ext_resource type="PackedScene" uid="uid://4hjxrs5klu2k" path="res://scenes/speck_collector.tscn" id="7_2nxix"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k7ulu"]
 particles_animation = true
@@ -22,14 +26,16 @@ scale_3d_max = Vector3(0.68, 0.68, 0.68)
 anim_speed_min = 1.25
 anim_speed_max = 1.25
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1207146002]
+[node name="TangoRigidBody2D" type="RigidBody2D" unique_id=1207146002]
+collision_mask = 5
 mass = 100.0
 gravity_scale = 0.0
-linear_damp = 0.2
+linear_damp = 0.6
 angular_damp = 0.5
 script = ExtResource("1_or0f7")
-acceleration = 30000.0
-turn_acceleration = 300000.0
+
+[node name="Icon" parent="." unique_id=1961161052 instance=ExtResource("5_qgru1")]
+texture = ExtResource("5_q4bqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1184458152]
 scale = Vector2(0.1, 0.1)
@@ -52,3 +58,18 @@ seed = 1639622435
 fixed_fps = 60
 trail_lifetime = 5.35
 process_material = SubResource("ParticleProcessMaterial_ymq40")
+
+[node name="Left Mining Turret" parent="." unique_id=792197187 node_paths=PackedStringArray("ship") instance=ExtResource("4_k43ft")]
+position = Vector2(-50, -79)
+rotation = -1.5707964
+ship = NodePath("..")
+turret_range = 1000.0
+
+[node name="Right Mining Turret" parent="." unique_id=401704476 node_paths=PackedStringArray("ship") instance=ExtResource("4_k43ft")]
+position = Vector2(50, -79.00001)
+rotation = 1.5707964
+ship = NodePath("..")
+turret_range = 1000.0
+
+[node name="SpeckCollector" parent="." unique_id=221777134 instance=ExtResource("7_2nxix")]
+position = Vector2(0, -185)

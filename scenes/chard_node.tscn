@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b4hll6k1p5cm"]
+
+[ext_resource type="Texture2D" uid="uid://b8io5hekeo2dt" path="res://sprites/chard_node.svg" id="1_4031q"]
+[ext_resource type="Script" uid="uid://c82u7lgfvwe2t" path="res://scripts/chard_node.gd" id="1_y284b"]
+[ext_resource type="PackedScene" uid="uid://bhc5jrf8tcryr" path="res://scenes/icon.tscn" id="2_kg6p2"]
+[ext_resource type="Texture2D" uid="uid://d010ealnulih8" path="res://sprites/chard.svg" id="3_y284b"]
+
+[node name="ChardNode" type="RigidBody2D" unique_id=1292397726]
+z_index = 2
+collision_layer = 4
+collision_mask = 7
+mass = 10000.0
+gravity_scale = 0.0
+linear_damp = 0.3
+angular_damp = 0.25
+script = ExtResource("1_y284b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=592764414]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_4031q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=526825093]
+polygon = PackedVector2Array(244, -166, 206, -230, 115, -269, 0, -244, -30, -154, -44, -167, -142, -153, -256, -64, -205, 0, -205, 0, -243, 71, -212, 115, -231, 141, -184, 237, -77, 269, 13, 269, 39, 217, 167, 176, 167, 164, 231, 89, 256, 12, 192, -102)
+
+[node name="Icon" parent="." unique_id=1961161052 instance=ExtResource("2_kg6p2")]
+texture = ExtResource("3_y284b")

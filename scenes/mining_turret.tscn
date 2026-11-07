@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bmywqdsg3yequ"]
+
+[ext_resource type="Script" uid="uid://dfx3jwhxo6yg" path="res://scripts/mining_turret.gd" id="1_bxnhi"]
+[ext_resource type="Texture2D" uid="uid://bv5vobgey24gr" path="res://sprites/mining-turret.svg" id="1_yrtgn"]
+
+[node name="MiningTurret" type="Node2D" unique_id=221777134]
+z_index = 2
+script = ExtResource("1_bxnhi")
+rotation_speed = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=958270767]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_yrtgn")

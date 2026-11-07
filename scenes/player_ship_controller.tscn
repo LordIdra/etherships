@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://ct7rse8bj5a0m"]
+
+[ext_resource type="Script" uid="uid://dqyt4sjlalyr1" path="res://scripts/player_ship_controller.gd" id="1_dmvl7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgru1"]
+bg_color = Color(0.48331898, 0.8647585, 0.99999994, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nxix"]
+bg_color = Color(0.88704383, 0.4463839, 0.46794575, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ulu"]
+bg_color = Color(0.47946125, 0.5659244, 0.9651777, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PlayerShipController" type="Node2D" unique_id=468274298]
+script = ExtResource("1_dmvl7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=519807875]
+
+[node name="TopPanel" type="Panel" parent="CanvasLayer" unique_id=1249031685]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_right = 151.5
+offset_bottom = 90.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="SpeedKey" type="Label" parent="CanvasLayer/TopPanel" unique_id=680501276]
+layout_mode = 0
+offset_left = 0.5
+offset_right = 57.5
+offset_bottom = 23.0
+text = "Speed"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SpeedBar" type="ProgressBar" parent="CanvasLayer/TopPanel" unique_id=1589292857]
+layout_mode = 0
+offset_left = 59.5
+offset_top = 3.0
+offset_right = 299.5
+offset_bottom = 22.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgru1")
+rounded = true
+show_percentage = false
+
+[node name="HullKey" type="Label" parent="CanvasLayer/TopPanel" unique_id=823872455]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 24.0
+offset_right = 57.5
+offset_bottom = 47.0
+text = "Hull"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HullBar" type="ProgressBar" parent="CanvasLayer/TopPanel" unique_id=1253915670]
+layout_mode = 0
+offset_left = 59.5
+offset_top = 28.0
+offset_right = 299.5
+offset_bottom = 47.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2nxix")
+rounded = true
+show_percentage = false
+
+[node name="ShieldKey" type="Label" parent="CanvasLayer/TopPanel" unique_id=1704984370]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 47.0
+offset_right = 57.5
+offset_bottom = 70.0
+text = "Shield"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ShieldBar" type="ProgressBar" parent="CanvasLayer/TopPanel" unique_id=579057444]
+layout_mode = 0
+offset_left = 59.5
+offset_top = 51.0
+offset_right = 299.5
+offset_bottom = 70.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7ulu")
+rounded = true
+show_percentage = false
+
+[node name="TurretPanel" type="HBoxContainer" parent="CanvasLayer" unique_id=625416647]
+offset_left = 10.0
+offset_top = 577.0
+offset_right = 418.0
+offset_bottom = 637.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=735679221]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true

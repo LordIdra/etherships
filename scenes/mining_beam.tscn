@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0alyk3o0f2rk"]
+
+[ext_resource type="Texture2D" uid="uid://bg31gw6dtfydk" path="res://sprites/mining-beam.svg" id="1_dq3jo"]
+
+[node name="MiningBeam" type="Line2D" unique_id=841534200]
+top_level = true
+z_index = 1
+points = PackedVector2Array(0, 0, 0, -35)
+texture = ExtResource("1_dq3jo")
+texture_mode = 2

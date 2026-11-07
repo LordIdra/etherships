@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://btun77do6xcfi"]
+
+[ext_resource type="PackedScene" uid="uid://ct7rse8bj5a0m" path="res://scenes/player_ship_controller.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://btgyxx65yfho8" path="res://scenes/tango.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b4hll6k1p5cm" path="res://scenes/chard_node.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://b0yfcaf0uaadg" path="res://scenes/chard_speck.tscn" id="4_jyhfs"]
+
+[node name="Main" type="Node" unique_id=1159144964]
+
+[node name="PlayerShipController" parent="." unique_id=529531611 instance=ExtResource("1_sugp2")]
+
+[node name="Tango2" parent="." unique_id=1207146002 instance=ExtResource("2_jyhfs")]
+
+[node name="Tango" parent="." unique_id=1584762870 instance=ExtResource("2_jyhfs")]
+position = Vector2(936, 223)
+acceleration_force = 10000.0
+turn_acceleration = 300000.0
+
+[node name="ChardNode" parent="." unique_id=1292397726 instance=ExtResource("3_tbgi4")]
+position = Vector2(463, 348)
+
+[node name="ChardSpeck" parent="." unique_id=149153455 instance=ExtResource("4_jyhfs")]
+position = Vector2(485, -15)
+rotation = -0.7330383
+
+[node name="ChardSpeck2" parent="." unique_id=1550348161 instance=ExtResource("4_jyhfs")]
+position = Vector2(738, -85)
+rotation = 0.9512044

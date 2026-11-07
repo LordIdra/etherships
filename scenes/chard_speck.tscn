@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0yfcaf0uaadg"]
+
+[ext_resource type="Script" uid="uid://77jfylb34vvt" path="res://scripts/chard_speck.gd" id="1_kvg7y"]
+[ext_resource type="PackedScene" uid="uid://bhc5jrf8tcryr" path="res://scenes/icon.tscn" id="3_uceak"]
+[ext_resource type="Texture2D" uid="uid://d010ealnulih8" path="res://sprites/chard.svg" id="4_cuvl2"]
+
+[node name="ChardSpeck" type="RigidBody2D" unique_id=1292397726]
+collision_layer = 4
+collision_mask = 7
+mass = 50.0
+gravity_scale = 0.0
+linear_damp = 0.3
+angular_damp = 0.25
+script = ExtResource("1_kvg7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=592764414]
+position = Vector2(0, -5.545)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_cuvl2")
+
+[node name="Icon" parent="." unique_id=1961161052 instance=ExtResource("3_uceak")]
+texture = ExtResource("4_cuvl2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=950964989]
+z_index = 2
+polygon = PackedVector2Array(23, 14, 0, -25, -23, 14)
