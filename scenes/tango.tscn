@@ -33,6 +33,11 @@ gravity_scale = 0.0
 linear_damp = 0.6
 angular_damp = 0.5
 script = ExtResource("1_or0f7")
+acceleration_force = 10000.0
+turn_acceleration = 300000.0
+max_hull = 200.0
+max_shield = 300.0
+max_chard = 200.0
 
 [node name="Icon" parent="." unique_id=1961161052 instance=ExtResource("5_qgru1")]
 texture = ExtResource("5_q4bqi")

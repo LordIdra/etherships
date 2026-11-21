@@ -13,6 +13,7 @@ enum Status {
 @export var ship: Tango
 @export var rotation_speed: float
 @export var turret_range: float
+@export var mine_chance: float
 
 var beam_scene: PackedScene = preload("res://scenes/mining_beam.tscn")
 var status: Status:
@@ -22,21 +23,20 @@ var status: Status:
 			status_updated.emit(value)
 var beam: Line2D = null
 
-signal status_updated(enabled: bool)
+signal status_updated(status: Status)
 
 func _physics_process(delta: float) -> void:
 	if ship.target != null:
-		@warning_ignore("shadowed_variable", "confusable_local_usage")
-		var rotation_speed = rotation_speed * delta
+		var rotation_step = rotation_speed * delta
 		
 		var target_angle = global_position.angle_to_point(ship.target.global_position) + PI / 2
 		var requested_rotation_delta = angle_difference(global_rotation, target_angle)
-		if absf(requested_rotation_delta) < rotation_speed:
+		if absf(requested_rotation_delta) < rotation_step:
 			global_rotation = target_angle
 		else:
-			global_rotation += sign(requested_rotation_delta) * min(absf(requested_rotation_delta), rotation_speed)
+			global_rotation += sign(requested_rotation_delta) * min(absf(requested_rotation_delta), rotation_step)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if status == Status.Off:
 		pass
 	elif ship.target == null:
@@ -62,6 +62,9 @@ func _process(_delta: float) -> void:
 		beam.clear_points()
 		beam.add_point(global_position)
 		beam.add_point(ship.target.global_position)
+		var target: ChardNode = ship.target
+		if randf() < mine_chance * delta:
+			target.mine(target.global_position - global_position)
 
 func set_enabled(enabled: bool) -> void:
 	if enabled:
@@ -70,7 +73,7 @@ func set_enabled(enabled: bool) -> void:
 		status = Status.Off
 
 func is_target_in_range():
-	return ship.target == null || global_position.distance_to(ship.target.global_position) < turret_range
+	return ship.target != null && global_position.distance_to(ship.target.global_position) < turret_range
 
 func is_pointing_at_target():
 	var target_angle = global_position.angle_to_point(ship.target.global_position) + PI / 2

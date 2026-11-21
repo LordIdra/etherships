@@ -1,12 +1,13 @@
 extends Node
 
-@onready var ship: Tango = $/root/Main/Tango
+@onready var ship: Tango = $/root/Main/Ships/Tango
 var mining_turret_control = preload("res://scenes/mining_turret_control.tscn")
 
 func _ready() -> void:
 	$CanvasLayer/TopPanel/SpeedBar.max_value = ship.get_max_speed()
 	$CanvasLayer/TopPanel/HullBar.max_value = ship.max_hull
 	$CanvasLayer/TopPanel/ShieldBar.max_value = ship.max_shield
+	$CanvasLayer/TopPanel/ChardBar.max_value = ship.max_chard
 	
 	for mining_turret in ship.get_mining_turrets():
 		var control = mining_turret_control.instantiate()
@@ -25,4 +26,5 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/TopPanel/SpeedBar.value = ship.linear_velocity.length()
 	$CanvasLayer/TopPanel/HullBar.value = ship.hull
 	$CanvasLayer/TopPanel/ShieldBar.value = ship.shield
+	$CanvasLayer/TopPanel/ChardBar.value = ship.chard_amount
 	$Camera2D.global_position = ship.global_position

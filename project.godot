@@ -54,3 +54,4 @@ deccelerate={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method.mobile="forward_plus"
+environment/defaults/default_clear_color=Color(0.3070323, 0.29998437, 0.3017499, 1)

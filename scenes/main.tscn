@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ct7rse8bj5a0m" path="res://scenes/player_ship_controller.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://btgyxx65yfho8" path="res://scenes/tango.tscn" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://jqs6g5v0ew62" path="res://scripts/environment_generator.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b4hll6k1p5cm" path="res://scenes/chard_node.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b0yfcaf0uaadg" path="res://scenes/chard_speck.tscn" id="4_jyhfs"]
 
@@ -9,20 +10,27 @@
 
 [node name="PlayerShipController" parent="." unique_id=529531611 instance=ExtResource("1_sugp2")]
 
-[node name="Tango2" parent="." unique_id=1207146002 instance=ExtResource("2_jyhfs")]
+[node name="EnvironmentGenerator" type="Node" parent="." unique_id=1386244603]
+script = ExtResource("2_tbgi4")
 
-[node name="Tango" parent="." unique_id=1584762870 instance=ExtResource("2_jyhfs")]
+[node name="Ships" type="Node" parent="." unique_id=1243633347]
+
+[node name="Tango" parent="Ships" unique_id=1584762870 instance=ExtResource("2_jyhfs")]
 position = Vector2(936, 223)
-acceleration_force = 10000.0
-turn_acceleration = 300000.0
 
-[node name="ChardNode" parent="." unique_id=1292397726 instance=ExtResource("3_tbgi4")]
+[node name="Tango2" parent="Ships" unique_id=1207146002 instance=ExtResource("2_jyhfs")]
+
+[node name="Nodes" type="Node" parent="." unique_id=682407060]
+
+[node name="ChardNode" parent="Nodes" unique_id=1292397726 instance=ExtResource("3_tbgi4")]
 position = Vector2(463, 348)
 
-[node name="ChardSpeck" parent="." unique_id=149153455 instance=ExtResource("4_jyhfs")]
+[node name="Specks" type="Node" parent="." unique_id=180804498]
+
+[node name="ChardSpeck" parent="Specks" unique_id=149153455 instance=ExtResource("4_jyhfs")]
 position = Vector2(485, -15)
 rotation = -0.7330383
 
-[node name="ChardSpeck2" parent="." unique_id=1550348161 instance=ExtResource("4_jyhfs")]
+[node name="ChardSpeck2" parent="Specks" unique_id=1550348161 instance=ExtResource("4_jyhfs")]
 position = Vector2(738, -85)
-rotation = 0.9512044
+rotation = 0.9512045
